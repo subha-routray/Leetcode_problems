@@ -1,0 +1,27 @@
+class Solution(object):
+    def reverse(self, x):
+        '''
+        x=123       
+        out=int(str(abs(x))[::-1])
+        '''
+    
+        #sign = -1 if x < 0 else 1
+        if x<0:
+            sign=-1
+        else:
+            sign=1
+        x = abs(x)
+        
+        rev = 0
+        
+        while x != 0:
+            digit = x % 10
+            rev = rev * 10 + digit
+            x = x // 10
+        
+        rev = sign * rev
+        
+        if rev < -2**31 or rev > 2**31 - 1:
+            return 0
+        
+        return rev
